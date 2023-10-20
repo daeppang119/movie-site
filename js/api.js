@@ -48,15 +48,20 @@ function renderMovies(data) {
     // console.log(element.title);
 
     cardList.innerHTML += `
-      <div class="movieCard" onclick="alert('영화 id : ${element.id}')">
-        <img src="https://image.tmdb.org/t/p/w500/${element.poster_path}" alt="${element.title}">
-        <div class="movieInfo">
+    <div class="movieCard" onclick="alert('영화 id : ${element.id}')">
+        <img
+          src="https://image.tmdb.org/t/p/w500/${element.poster_path}"
+          alt="${element.title}"
+        />
+        <div class="back">
+          <div class="movieInfo">
             <h3>${element.title}</h3>
-            <span class="vote_average">평점 : ${element.vote_average}%</span>
-        </div>
-        <div class="overview">
+            <span class="vote_average">grade : ${element.vote_average}</span>
+          </div>
+          <div class="overview">
             <h4>overveiw</h4>
             ${element.overview}
+          </div>
         </div>
       </div>
     `;
