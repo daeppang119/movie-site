@@ -1,0 +1,103 @@
+
+🚩 [자바스크립트 개인 과제]
+
+- Javascript과정을 마무리하며, JS 문법의 핵심을 적용해 볼 수 있는 영화 검색 사이트를 제작합니다.
+
+- 영화정보 오픈API인 TMDB(The Movie DB)를 사용합니다.
+
+
+### 과제 개요
+
+1. 순수 바닐라 자바스크립트만으로 영화 리스트 조회 및 검색 UI 구현
+
+2. 학습해온 자바스크립트 문법을 최대한 활용
+
+3. 스타일링 작업하며 css 와 친해지기
+
+
+=========================
+
+
+
+
+- (1) 필수요구사항
+    - [1] jQuery 라이브러리 사용없이 **순수 바닐라 자바스크립트** 사용하기
+        - JavaScript 문법 종합반에서 학습한 내용과 지난 예제문제를 참조해 보세요
+    - [2] TMDB 오픈 API를 이용하여 인기영화 데이터 가져오기
+        
+        
+        💡 **[TMDB 오픈 API란?]**
+        전 세계에서 가장 많이 사용하는 영화 정보 오픈 API 중 하나입니다. ‘감독’, ‘출연진’, 포스터’ 등 다양한 서비스를 대부분 무료로 제공합니다.
+        
+        아래 안내 사항을 따라하며 본인의 API KEY로 인기영화 리스트 데이터를 받아올 준비를 해보세요.
+        
+        - TMDB 가입 및 API 요청 방법 안내
+            1. 회원가입: https://www.themoviedb.org/signup?language=ko
+            2. 이메일 인증: 회원가입 시 입력한 이메일함에 가서 “Activate My Account” 버튼 클릭 후 로그인
+            3. 프로필과 설정 버튼 클릭 후 설정 클릭
+                - 스크린샷 참고
+                    
+                    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6e3428c3-8fbc-42ec-a8fc-e2dadd6ded63/Untitled.png)
+                    
+            4. 좌측 사이드메뉴에서 API 메뉴 클릭 후 API 키 요청 섹션의 ‘click here’ 클릭
+                - 스크린샷 참고
+                    
+                    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ceea91a7-fc6c-4bd4-ab02-c5a4f199d913/Untitled.png)
+                    
+            5. “What type of API key do you wish to register?” ********라는 질문에 Developer 클릭 후 동의
+            6. API 신청양식 채우고 제출버튼 클릭
+                - 스크린샷 참고
+                    
+                    ![API신청양식.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f3efa6d8-bf47-46bd-b951-3a8530c47a43/API%E1%84%89%E1%85%B5%E1%86%AB%E1%84%8E%E1%85%A5%E1%86%BC%E1%84%8B%E1%85%A3%E1%86%BC%E1%84%89%E1%85%B5%E1%86%A8.png)
+                    
+            7. API 문서로 이동하기
+                - 스크린샷 참고
+                    
+                    ![API문서이동.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f68e245f-927f-4b7f-9b36-aab6266eb62b/API%E1%84%86%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%84%8B%E1%85%B5%E1%84%83%E1%85%A9%E1%86%BC.png)
+                    
+            8. 영화 API 요청 코드 복사하기 (1~4번 순서대로 진행)
+                - 스크린샷 참고 (4번의 Try it! 버튼 클릭하여 Response Data 확인하기)
+                    
+                    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/55227e71-e11c-4058-bfd0-9b602fb81ddc/Untitled.png)
+                    
+            9. 본인의 js 코드에 8번에서 복사한 코드 적용하기
+       
+        
+    - [3] 영화정보 카드 리스트 UI 구현
+        - TMDB에서 받아온 데이터를 브라우저 화면에 카드 형태의 데이터로 보여줍니다.
+        - 카드에는 title(제목), overview(내용 요약), poster_path(포스터 이미지 경로), vote_average(평점) 이렇게 4가지 정보가 필수로 들어갑니다.
+            
+            
+            💡 TMDB 에서 영화 이미지를 가져오려면?
+            https://developer.themoviedb.org/docs/image-basics
+            위 문서를 참고하여 image url 확인해 보세요.
+            image url 은 base url + file size + file path 로 구성됩니다.
+            
+            
+            
+        - 카드 클릭 시에는 클릭한 영화 id 를 나타내는 alert 창을 띄웁니다.
+            - 스크린샷
+                
+                ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7007a3aa-483d-46e4-8110-4bdd2c2559e3/Untitled.png)
+                
+    - [4] 영화 검색 UI 구헌
+        - API로 받아온 전체 영화들 중 영화 제목에 input 창에 입력한 문자값이 포함되는 영화들만 화면에 보이도록 합니다.
+        - 입력 후 검색버튼 클릭 시 실행되도록 합니다.
+    - [5] 하기 기재된 Javascript 문법 요소를 이용하여 구현
+        - 문법 리스트
+
+
+(2) 선택요구사항
+
+        CSS
+        - flex 사용하기
+        - grid 사용하기
+
+        JavaScript
+        
+        - 웹사이트 랜딩 또는 새로고침 후 검색 입력란에 커서 자동 위치시키기
+        - 대소문자 관계없이 검색 가능하게 하기
+        - 키보드 enter키를 입력해도 검색버튼 클릭한 것과 동일하게 검색 실행시키기
+        - 원하는 추가기능 무엇이라도 okay!
+            - 여러분의 챌린지는 언제나 환영합니다. 필수 요구사항이 완료되었다면, 자유롭게 추가기능을 넣어주세요.
+            - 단, 우선순위는 필수요구사항임을 명심해주세요!
