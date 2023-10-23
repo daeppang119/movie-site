@@ -9,18 +9,13 @@ const options = {
   headers: {
     accept: "application/json",
     Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzMmUzMTJjYTQyMTY3YWEzYTYxMmM0NmJjNjdiZTU4NiIsInN1YiI6IjY1MmYyNTlkYTgwMjM2MDExYWM3YzBiYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.njfFp-h_Xr_eveVOIyI4_exwO1zWRtnpohvfcdIqVVA",
-  },
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzMmUzMTJjYTQyMTY3YWEzYTYxMmM0NmJjNjdiZTU4NiIsInN1YiI6IjY1MmYyNTlkYTgwMjM2MDExYWM3YzBiYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.njfFp-h_Xr_eveVOIyI4_exwO1zWRtnpohvfcdIqVVA"
+  }
 };
-
-getTopRatedMovies();
 
 function getTopRatedMovies(value) {
   console.log("value => ", value);
-  fetch(
-    "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
-    options
-  )
+  fetch("https://api.themoviedb.org/3/movie/popular?language=en-US&page=1", options)
     .then((response) => response.json())
     .then((data) => {
       if (value) {
@@ -28,7 +23,7 @@ function getTopRatedMovies(value) {
           ...data,
           results: data.results.filter((v) => {
             return v.title.toLowerCase().indexOf(value.toLowerCase()) !== -1;
-          }),
+          })
         }; // fetch해서 가져온 데이타와 input.value를 이용해서 원하는 데이터를 찾은뒤에 newData 변수에 할당한다.
         console.log(newData.results);
         renderMovies(newData);
@@ -56,9 +51,7 @@ function renderMovies(data) {
         <div class="back">
           <div class="movieInfo">
             <h3>${element.title}</h3>
-            <span class="vote_average">grade : ${
-              Math.ceil(element.vote_average) * 10
-            }%</span>
+            <span class="vote_average">Rating : ${Math.ceil(element.vote_average) * 10}%</span>
           </div>
           <div class="overview">
             <h4>overveiw</h4>
@@ -72,24 +65,26 @@ function renderMovies(data) {
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  input.addEventListener("keyup", (e) => {
+  input.addEventListener("keyup", () => {
     e.preventDefault(); // 새로고침 방지
     if (e.key === "Enter") {
       if (input.value !== "") {
         getTopRatedMovies(input.value);
         input.value = ""; // 검색 완료되면 검색창 빈값
       } else {
-        window.location.reload();
+        alert("검색 결과가 없습니다.");
       }
     }
   });
 
-  searchBtn.addEventListener("click", (e) => {
+  searchBtn.addEventListener("click", () => {
     if (input.value !== "") {
       getTopRatedMovies(input.value);
       input.value = "";
     } else {
-      window.location.reload();
+      alert("검색 결과가 없습니다.");
     }
   });
 });
+
+getTopRatedMovies();
