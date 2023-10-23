@@ -1,4 +1,8 @@
-// const API_KEY = '32e312ca42167aa3a612c46bc67be586'
+const searchBtnDOM = document.getElementById("searchBtn");
+const cardList = document.getElementById("cardList");
+const form = document.getElementById("form");
+const input = document.getElementById("searchInput");
+const searchBtn = document.getElementById("searchBtn");
 
 const options = {
   method: "GET",
@@ -9,16 +13,12 @@ const options = {
   },
 };
 
-const searchBtnDOM = document.getElementById("searchBtn");
-const cardList = document.getElementById("cardList");
-const form = document.getElementById("form");
-const input = document.getElementById("searchInput");
-const searchBtn = document.getElementById("searchBtn");
+getTopRatedMovies();
 
 function getTopRatedMovies(value) {
   console.log("value => ", value);
   fetch(
-    "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1",
+    "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
     options
   )
     .then((response) => response.json())
@@ -56,7 +56,9 @@ function renderMovies(data) {
         <div class="back">
           <div class="movieInfo">
             <h3>${element.title}</h3>
-            <span class="vote_average">grade : ${element.vote_average}</span>
+            <span class="vote_average">grade : ${
+              Math.ceil(element.vote_average) * 10
+            }%</span>
           </div>
           <div class="overview">
             <h4>overveiw</h4>
@@ -67,8 +69,6 @@ function renderMovies(data) {
     `;
   });
 }
-
-getTopRatedMovies();
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
