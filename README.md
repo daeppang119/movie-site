@@ -35,31 +35,11 @@
             1. 회원가입: https://www.themoviedb.org/signup?language=ko
             2. 이메일 인증: 회원가입 시 입력한 이메일함에 가서 “Activate My Account” 버튼 클릭 후 로그인
             3. 프로필과 설정 버튼 클릭 후 설정 클릭
-                - 스크린샷 참고
-                    
-                    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6e3428c3-8fbc-42ec-a8fc-e2dadd6ded63/Untitled.png)
-                    
             4. 좌측 사이드메뉴에서 API 메뉴 클릭 후 API 키 요청 섹션의 ‘click here’ 클릭
-                - 스크린샷 참고
-                    
-                    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ceea91a7-fc6c-4bd4-ab02-c5a4f199d913/Untitled.png)
-                    
             5. “What type of API key do you wish to register?” ********라는 질문에 Developer 클릭 후 동의
             6. API 신청양식 채우고 제출버튼 클릭
-                - 스크린샷 참고
-                    
-                    ![API신청양식.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f3efa6d8-bf47-46bd-b951-3a8530c47a43/API%E1%84%89%E1%85%B5%E1%86%AB%E1%84%8E%E1%85%A5%E1%86%BC%E1%84%8B%E1%85%A3%E1%86%BC%E1%84%89%E1%85%B5%E1%86%A8.png)
-                    
             7. API 문서로 이동하기
-                - 스크린샷 참고
-                    
-                    ![API문서이동.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f68e245f-927f-4b7f-9b36-aab6266eb62b/API%E1%84%86%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%E1%84%8B%E1%85%B5%E1%84%83%E1%85%A9%E1%86%BC.png)
-                    
             8. 영화 API 요청 코드 복사하기 (1~4번 순서대로 진행)
-                - 스크린샷 참고 (4번의 Try it! 버튼 클릭하여 Response Data 확인하기)
-                    
-                    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/55227e71-e11c-4058-bfd0-9b602fb81ddc/Untitled.png)
-                    
             9. 본인의 js 코드에 8번에서 복사한 코드 적용하기
        
         
@@ -72,13 +52,9 @@
             https://developer.themoviedb.org/docs/image-basics
             위 문서를 참고하여 image url 확인해 보세요.
             image url 은 base url + file size + file path 로 구성됩니다.
-            
-            
+  
             
         - 카드 클릭 시에는 클릭한 영화 id 를 나타내는 alert 창을 띄웁니다.
-            - 스크린샷
-                
-                ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7007a3aa-483d-46e4-8110-4bdd2c2559e3/Untitled.png)
                 
     - [4] 영화 검색 UI 구헌
         - API로 받아온 전체 영화들 중 영화 제목에 input 창에 입력한 문자값이 포함되는 영화들만 화면에 보이도록 합니다.
