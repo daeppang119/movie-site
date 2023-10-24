@@ -40,10 +40,8 @@ function renderMovies(data) {
   // console.log(JSON.stringify(data));
   cardList.innerHTML = "";
   data.results.forEach((element) => {
-    // console.log(element.title);
-
     cardList.innerHTML += `
-    <div class="movieCard" onclick="alert('영화 id : ${element.id}')">
+    <div class="movieCard" data-id=${element.id}>
         <img
           src="https://image.tmdb.org/t/p/w500/${element.poster_path}"
           alt="${element.title}"
@@ -51,7 +49,7 @@ function renderMovies(data) {
         <div class="back">
           <div class="movieInfo">
             <h3>${element.title}</h3>
-            <span class="vote_average">Rating : ${Math.ceil(element.vote_average) * 10}%</span>
+            <span class="vote_average">Percent : ${Math.ceil(element.vote_average) * 10}%</span>
           </div>
           <div class="overview">
             <h4>overveiw</h4>
@@ -61,7 +59,17 @@ function renderMovies(data) {
       </div>
     `;
   });
+
+  const movieCard = document.querySelectorAll(".movieCard");
+
+  movieCard.forEach((movie) => {
+    console.log(movie.dataset.id);
+    movie.addEventListener("click", function () {
+      return (location.href = `/detaile_page.html?movie_id=${movie.dataset.id}`);
+    });
+  });
 }
+getTopRatedMovies();
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -73,6 +81,7 @@ form.addEventListener("submit", (e) => {
         input.value = ""; // 검색 완료되면 검색창 빈값
       } else {
         alert("검색 결과가 없습니다.");
+        location.reload();
       }
     }
   });
@@ -83,8 +92,7 @@ form.addEventListener("submit", (e) => {
       input.value = "";
     } else {
       alert("검색 결과가 없습니다.");
+      location.reload();
     }
   });
 });
-
-getTopRatedMovies();
