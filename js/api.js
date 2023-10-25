@@ -41,7 +41,7 @@ function renderMovies(data) {
   cardList.innerHTML = "";
   data.results.forEach((element) => {
     cardList.innerHTML += `
-    <div class="movieCard" data-id=${element.id}>
+    <div class="movieCard" id=${element.id}>
         <img
           src="https://image.tmdb.org/t/p/w500/${element.poster_path}"
           alt="${element.title}"
@@ -63,12 +63,13 @@ function renderMovies(data) {
   const movieCard = document.querySelectorAll(".movieCard");
 
   movieCard.forEach((movie) => {
-    console.log(movie.dataset.id);
+    console.log(movie.id);
     movie.addEventListener("click", function () {
-      return (location.href = `/detaile_page.html?movie_id=${movie.dataset.id}`);
+      return (location.href = `/detaile_page.html?movie_id=${movie.id}`);
     });
   });
 }
+
 getTopRatedMovies();
 
 form.addEventListener("submit", (e) => {
