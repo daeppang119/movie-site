@@ -4,6 +4,9 @@ const pages = document.querySelector("#pages");
 const movieID = url.searchParams.get("movie_id");
 // console.log(url.searchParams.get("movie_id"));
 
+const commentForm = document.querySelector("#commentForm");
+const comments = document.querySelector("#comments");
+
 const options = {
   method: "GET",
   headers: {
@@ -21,17 +24,30 @@ function detailPage() {
 }
 
 function movieDetails(data) {
-  console.log(data);
-  let capRan = data.original_language.toUpperCase()
-  let genresArray = data.genres[0].name
-  let genresArray2 = data.genres[1].name
+  // console.log(data);
+  let capRan = data.original_language.toUpperCase();
+  let genresArray = data.genres[0].name;
+  let genresArray2 = data.genres[1].name;
 
   // console.log(genresArray);
   // console.log(genresArray2);
-  const { title, overview, poster_path, runtime, vote_average, vote_count, tagline, status, release_date, genres, original_language, homepage, adult } = data;
+  const {
+    title,
+    overview,
+    poster_path,
+    runtime,
+    vote_average,
+    vote_count,
+    tagline,
+    status,
+    release_date,
+    genres,
+    original_language,
+    homepage,
+    adult
+  } = data;
 
-  pages.innerHTML += `
-  
+  pages.innerHTML = `
   <div class="detail_wrap">
     <div class="img_back">
         <img src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="${title}"/>
@@ -59,3 +75,47 @@ function movieDetails(data) {
 }
 
 detailPage();
+
+// 댓글기능
+commentForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const nicknameInput = commentForm.nickname;
+  const commentInput = commentForm.comment;
+  const passwordInput = commentForm.password;
+
+  console.log(nicknameInput.value);
+  console.log(commentInput.value);
+  console.log(passwordInput.value);
+
+  comments.innerHTML += `
+    <li>
+      <div>
+        <p>${nicknameInput.value}</p>
+      </div>
+      <div>
+        ${commentInput.value}
+      </div>
+    </li>
+  `;
+
+  // localStorage 데이터 저장
+  const key = localStorage.length + 1;
+  const value = {
+    nickname: nicknameInput.value,
+    comment: commentInput.value,
+    password: passwordInput.value
+  };
+
+  localStorage.setItem(key, JSON.stringify(value));
+  // JSON.stringify - 객체를 문자열로 바꾸기
+
+  nicknameInput.value = "";
+  commentInput.value = "";
+  passwordInput.value = "";
+});
+
+// localStorage 데이터 불러오기
+const localData = JSON.parse(localStorage.getItem("key"));
+
+console.log(localData);
