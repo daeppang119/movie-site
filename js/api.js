@@ -65,7 +65,7 @@ function renderMovies(data) {
   movieCard.forEach((movie) => {
     console.log(movie.id);
     movie.addEventListener("click", function () {
-      return (location.href = `/detaile_page.html?movie_id=${movie.id}`);
+      return (location.href = `/detail_page.html?movie_id=${movie.id}`);
     });
   });
 }
