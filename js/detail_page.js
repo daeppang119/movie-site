@@ -107,6 +107,9 @@ commentForm.addEventListener("submit", (e) => {
     password: passwordInput.value
   };
 
+  // const list = JSON.parse(localStorage.getItem(key));
+  // list.push(value);
+
   localStorage.setItem(key, JSON.stringify(value));
   // JSON.stringify - 객체를 문자열로 바꾸기
 
@@ -116,6 +119,6 @@ commentForm.addEventListener("submit", (e) => {
 });
 
 // localStorage 데이터 불러오기
-const localData = JSON.parse(localStorage.getItem("key"));
+const localData = JSON.parse(localStorage.getItem(1));
 
-console.log(localData);
+comments.innerText = `${localData.nickname}, ${localData.comment}`;
