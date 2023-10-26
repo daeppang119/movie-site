@@ -45,7 +45,7 @@ function renderMovies(data) {
         <img
           src="https://image.tmdb.org/t/p/w500/${element.poster_path}"
           alt="${element.title}"
-        />
+        /> b
         <div class="back">
           <div class="movieInfo">
             <h3>${element.title}</h3>
