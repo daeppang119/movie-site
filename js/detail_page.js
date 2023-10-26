@@ -120,5 +120,12 @@ commentForm.addEventListener("submit", (e) => {
 
 // localStorage 데이터 불러오기
 const localData = JSON.parse(localStorage.getItem(1));
+console.log(localStorage);
+
+for (let i = 1; i <= localStorage.length; i++) {
+  const value = JSON.parse(localStorage.getItem(i));
+
+  console.log(value);
+}
 
 comments.innerText = `${localData.nickname}, ${localData.comment}`;
