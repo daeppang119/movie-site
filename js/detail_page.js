@@ -14,7 +14,7 @@ const options = {
 };
 
 function detailPage() {
-  fetch(`https://api.themoviedb.org/3/movie/${movieID}?language=en-US`, options)
+  fetch(`https://api.themoviedb.org/3/movie/${movieID}`, options)
     .then((response) => response.json())
     .then((data) => movieDetails(data))
     .catch((err) => console.error(err));
