@@ -1,0 +1,74 @@
+.detail_wrap {
+  /* background-color: antiquewhite; */
+  display: flex;
+}
+
+.img_back {
+  width: 100%;
+  padding: 30px;
+
+}
+
+.totalBox {
+  padding: 25px;
+}
+
+/* 상단 라인 */
+.titleVote {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.detail_title {
+  font-size: 3em;
+  font-weight: 800;
+}
+
+.vote {
+  font-size: 1.5em;
+  font-weight: 800;
+  margin-left: 20px;
+}
+
+.ran {
+  font-size: 1.2em;
+  font-weight: 800;
+  background-color: black;
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+  margin-left: auto;
+}
+
+/* 태그라인 */
+.tagline {
+  font-size: 1.2em;
+  font-weight: 800;
+  margin: 10px auto 10px 0;
+}
+
+/* 오버뷰 */
+.overview {
+  font-size: 1.3em;
+  padding-bottom: 50px;
+  border-bottom: 2px solid black;
+}
+
+/* 디테일 하단 라인 */
+
+.detail_bottom {
+  display: flex;
+  justify-content: space-between
+}
+
+.detail_bottom li {
+  font-size: 1.1em;
+  font-weight: 800;
+  margin-top: 10px;
+}
+
+
+.hp>a {
+  color: black;
+}

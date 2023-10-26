@@ -45,7 +45,7 @@ function renderMovies(data) {
         <img
           src="https://image.tmdb.org/t/p/w500/${element.poster_path}"
           alt="${element.title}"
-        />
+        /> b
         <div class="back">
           <div class="movieInfo">
             <h3>${element.title}</h3>
@@ -65,7 +65,7 @@ function renderMovies(data) {
   movieCard.forEach((movie) => {
     console.log(movie.id);
     movie.addEventListener("click", function () {
-      return (location.href = `/detaile_page.html?movie_id=${movie.id}`);
+      return (location.href = `/detail_page.html?movie_id=${movie.id}`);
     });
   });
 }
