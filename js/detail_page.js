@@ -92,12 +92,8 @@ commentForm.addEventListener("submit", (e) => {
 
   comments.innerHTML += `
     <li>
-      <div>
-        <p>${nicknameInput.value}</p>
-      </div>
-      <div>
-        ${commentInput.value}
-      </div>
+        <span>${nicknameInput.value}: ${commentInput.value}</span>
+        <button onclick='deleteComment(this)' data-password='${passwordInput.value}'>삭제</button>
     </li>
   `;
 
@@ -124,7 +120,21 @@ commentForm.addEventListener("submit", (e) => {
 });
 
 // localStorage 데이터 불러오기
-
 for (const comment of storedComments) {
   comments.innerHTML += `${comment.nickname} : ${comment.comment}<br>`;
+}
+
+// 댓글삭제
+function deleteComment(btn) {
+  const commentItem = btn.parentNode;
+  const password = btn.dataset.password;
+  console.log(btn);
+  console.log(deleteComment);
+  const inputPassword = prompt("댓글 삭제를 위해 비밀번호를 입력하세요:");
+  if (inputPassword === password) {
+    commentItem.remove();
+    alert("댓글이 삭제되었습니다.");
+  } else {
+    alert("비밀번호가 일치하지 않아 삭제를 취소합니다.");
+  }
 }

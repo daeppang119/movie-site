@@ -76,6 +76,10 @@
     - 상세페이지에서 특정 영화에 대해 의견을 작성할 수 있는 UI를 구현합니다.
       - **작성자, 리뷰, 확인비밀번호**를 입력하도록 구현합니다.
     - 작성한 정보는 브라우저의 localStorage에 적재하도록 합니다.
+      💡 [localStorage를 사용하는 방법] : localStorage를 이용하면 웹 브라우저에서 로컬 데이터를 저장하고, 불러와 사용할 수 있습니다.
+      (1) 데이터 저장하기(setItem) - localStorage.setItem('key', 'value');
+      (2) 데이터 불러오기(getItem) - localStorage.getItem('key');
+      (3) 데이터 삭제하기(removeItem) - localStorage.removeItem('key');
   - [4] github PR(=Pull Request) 사용한 협업
   - [5] UX를 고려한 validation check
     - 영화 검색 시
