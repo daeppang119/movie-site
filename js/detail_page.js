@@ -77,6 +77,8 @@ function movieDetails(data) {
 detailPage();
 
 // 댓글기능
+const storedComments = JSON.parse(localStorage.getItem(`movie_${movieID}_comments`)) || [];
+
 commentForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -110,8 +112,11 @@ commentForm.addEventListener("submit", (e) => {
   // const list = JSON.parse(localStorage.getItem(key));
   // list.push(value);
 
-  localStorage.setItem(key, JSON.stringify(value));
+  // localStorage.setItem(key, JSON.stringify(value));
   // JSON.stringify - 객체를 문자열로 바꾸기
+
+  storedComments.push(value);
+  localStorage.setItem(`movie_${movieID}_comments`, JSON.stringify(storedComments));
 
   nicknameInput.value = "";
   commentInput.value = "";
@@ -119,13 +124,7 @@ commentForm.addEventListener("submit", (e) => {
 });
 
 // localStorage 데이터 불러오기
-const localData = JSON.parse(localStorage.getItem(1));
-console.log(localStorage);
 
-for (let i = 1; i <= localStorage.length; i++) {
-  const value = JSON.parse(localStorage.getItem(i));
-
-  console.log(value);
+for (const comment of storedComments) {
+  comments.innerHTML += `${comment.nickname} : ${comment.comment}<br>`;
 }
-
-comments.innerText = `${localData.nickname}, ${localData.comment}`;
