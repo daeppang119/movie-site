@@ -55,7 +55,7 @@ function movieDetails(data) {
     <div class="totalBox">
         <div class="titleVote">
           <div class="detail_title">${title}</div>
-          <div class="vote">⭐${vote_average}(${vote_count} voted)</div>
+          <div class="vote">⭐${Math.ceil(vote_average) * 10}%(${vote_count} voted)</div>
           <div class="ran">${capRan}</div>
         </div>
 
@@ -69,7 +69,7 @@ function movieDetails(data) {
           <li>${genresArray}/${genresArray2}</li >
           <li class="runtime">${runtime} min</li>
         </ul >
-    </div >   
+    </div>
   </div >
   `;
 }
@@ -90,12 +90,8 @@ commentForm.addEventListener("submit", (e) => {
 
   comments.innerHTML += `
     <li>
-      <div>
-        <p>${nicknameInput.value}</p>
-      </div>
-      <div>
-        ${commentInput.value}
-      </div>
+      <span>${nicknameInput.value}: ${commentInput.value}</span>
+      <button onclick='delComment()' data-passwored='${passwordInput.value}'>삭제</button>
     </li>
   `;
 
@@ -118,14 +114,36 @@ commentForm.addEventListener("submit", (e) => {
   passwordInput.value = "";
 });
 
+// 댓글 삭제
+function delComment(btn) {
+  const commentItem = btn.parentNode;
+  const password = btn.dataset.password;
+
+  console.log(password);
+  console.log(btn);
+
+  // const inputPassword = prompt("댓글 삭제를 위해 비밀번호를 입력하세요.");
+
+  // if (inputPassword === password) {
+  //   commentItem.remove();
+  //   alert("댓글이 삭제되었습니다.");
+  // } else {
+  //   alert("비밀번호가 일치하지 않습니다.");
+  // }
+}
+
 // localStorage 데이터 불러오기
-const localData = JSON.parse(localStorage.getItem(1));
+// const localData = JSON.parse(localStorage.getItem(1));
 console.log(localStorage);
 
 for (let i = 1; i <= localStorage.length; i++) {
   const value = JSON.parse(localStorage.getItem(i));
 
   console.log(value);
+  comments.innerHTML = `
+  <li>
+      <span>${value.nickname}: ${value.comment}</span>
+      <button onclick='delComment(this)'>삭제</button>
+    </li>
+  `;
 }
-
-comments.innerText = `${localData.nickname}, ${localData.comment}`;

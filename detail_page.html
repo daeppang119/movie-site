@@ -14,12 +14,17 @@
     <section id="pages"></section>
     <h4>댓글달기</h4>
     <form id="commentForm">
-      <input type="text" name="nickname" placeholder="nickname" />
+      <input type="text" name="nickname" placeholder="nickname" autofocus />
       <input type="text" name="comment" placeholder="comment" />
       <input type="password" maxlength="8" pattern="[0-9a-fA-F]{4,8}" name="password" placeholder="password" />
       <button>Check</button>
     </form>
     <h5>Comments:</h5>
-    <ul id="comments"></ul>
+    <ul id="comments">
+      <li>
+        <span>닉네임: 코멘트</span>
+        <button>삭제</button>
+      </li>
+    </ul>
   </body>
 </html>
