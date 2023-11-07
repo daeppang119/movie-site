@@ -1,3 +1,5 @@
+배포링크 https://daeppang119.github.io/movie-site/
+
 🚩 [자바스크립트 개인 과제]
 
 - Javascript과정을 마무리하며, JS 문법의 핵심을 적용해 볼 수 있는 영화 검색 사이트를 제작합니다.
